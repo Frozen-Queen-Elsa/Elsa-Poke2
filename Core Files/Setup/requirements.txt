@@ -1,0 +1,6 @@
+colorama>=0.4.3
+discord.py-self.zip
+numpy>=1.20.0
+pillow>=8.1.0
+pychalk>=2.0.1
+matplotlib>=3.2.1

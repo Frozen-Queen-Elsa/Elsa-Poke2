@@ -1,0 +1,54 @@
+[Important] Give this whole readme a first read before attempting the setup.
+*****************************************************************************
+To make this version functional, refer the following:
+
+1. After installing Python 3.8, first run the `setup.bat`. That should install the required 3rd party libraries.
+
+Python 3.8.7: https://www.python.org/ftp/python/3.8.7/python-3.8.7-amd64.exe
+
+If you are getting:
+	A. "Python not found" error
+	or
+	B. an empty response,
+go to Start -> Change/Uninstall Programs. Select Python 3.8 and choose Modify. While reinstalling, make sure "Add Python as Environment Variable" and "Add Python to Path" are checked.
+
+2. In config.json:
+	A. Replace your user token within the "".
+	B. Replace "Enter your user id of your main account." with the id as an integer, i.e, get rid of the "".
+To get the user ids, go to Discord Settings -> Appearance and Enable Dev Mode.
+Then simply right-click on the user and Copy ID. 
+	C. log_level has 4 options:
+		1. Silent: No messages about catching.
+		2. Print: Only prints to console upon catching.
+		3. Priority: Only DMs owner when priority mon is caught, else logs to console.
+		4. Default: All catches are logged in the DMs.
+
+3. Create a fresh server and invite Poketwo to it. Then, use the P^setup_server command to automatically setup the channels and poketwo permissions for you. Make sure the bot account has admin/owner permissions in the server.
+
+4. Use P^help while logged in as the owner account to see a list of all the commands along with their usage. 
+
+5. Contact me on Discord for support. Have fun, play safe. :D
+
+**Useful Tips**
+===================
+1. Poketwo might detect selfbot commands so we need to use the commands in channels hidden from Poketwo.
+Do not spam/duel/trade/etc. without setting an active channel by using the P^channel command in a safe channel(#secret) first. Check out P^help channel for more details.
+
+2. The autosleep feature is enabled by default.
+Spamming will be disabled and catching will switch to Priority_only while the bot is sleeping.
+You can use all other commands in the meantime if required.
+Inter_sleep_delay is for how long you want the bot to run continuously before it autosleeps.
+Sleep_duration is for how long you want it to autosleep.
+Both the values are in seconds. For example, 2 hours = 2 * 60 * 60 = 7200 seconds.
+
+3. The first thing you probably want to do is spam.
+So, after the P^setup_server command is completed, in the secret channel, send these commands in the same order:
+	P^channel add spam_channel_id
+	P^toggle spam on
+	P^spam
+
+4. To quickly check the syntax and usage of a command, you can use P^help command_name, e.g., P^help spam
+
+5. Configs can now be easily updated using Edit.bat in the Setup folder.
+
+6. Due to the recent poketwo update, bot will autosleep for a day after catching 990 - 995 pokemons to bypass the captcha. If you verify the captcha manually, you can wake it up with P^verified.
