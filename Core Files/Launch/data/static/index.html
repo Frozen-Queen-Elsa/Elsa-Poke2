@@ -1,0 +1,589 @@
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Pokeball SelfBot Config Editor
+        </title>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+            integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+            rel="stylesheet"
+        />
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/big-integer/1.6.48/BigInteger.min.js"
+            integrity="sha512-ay3xvb1ky46pn2TD5cKikHiWLSakjf/rrwL7p5YYsC94WnMd3NlG4+ybWqu9Q8GbWiDun+grI45fMa7RO1m5Xg=="
+            crossorigin="anonymous"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+            integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+            crossorigin="anonymous"
+        />
+        <script src="pureknob.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="navbar navbar-expand-lg">
+            <h1>Pokeball SelfBot Config Editor</h1>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="idInputModal" tabindex="-1" aria-labelledby="idInputModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                <h5 class="modal-title" id="idInputModalLabel">Enter the ID here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times-circle text-danger"></i></span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <input id="modal-input" class="modal-input" size="59" required />
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-dark" id="modal-submit">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="main1">
+                <div class="inputs-container col card bg-dark p-4">
+                    <h1 class="text-center">Inputs</h1>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Token</span>
+                            <input id="Token" value="%Token%" name="Token"
+                                class="text-str" size="59" required
+                                placeholder="Enter your token here"
+                            />
+                        </div>
+                    </div>
+                    <div class="flex-adjust-box d-flex">
+                        <div class="inputs">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Command Prefix</span>
+                                    <input id="Command-Prefix" value="%Command-Prefix%" name="Command Prefix"
+                                        class="text-str" size="2" required
+                                    />
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Owner Id</span>
+                                    <input id="Owner-Id" value="%Owner-Id%" name="Owner Id" class="text-int"
+                                        minlength="18" maxlength="18" size="auto"
+                                        placeholder="Enter the Owner ID" required
+                                    />
+                                
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Clone Id</span>
+                                    <input id="Clone-Id" value="%Clone-Id%" name="Clone Id" class="text-int"
+                                        size="auto" required placeholder="716390085896962058"
+                                    />
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Priority</span>
+                                    <input id="Priority" value="%Priority%" name="Priority"
+                                        class="text-list text-capitalize"
+                                        placeholder="Pikachu, Eevee, Unown"
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Avoid</span>
+                                    <input id="Avoid" value="%Avoid%" name="Avoid"
+                                        class="text-list text-capitalize"
+                                        placeholder="Trubbish, Rattata"
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Allowed Users</span>
+                                    <input id="Allowed-Users" value="%Allowed-Users%" name="Allowed Users"
+                                        class="text-list-int"
+                                        placeholder="Advanced Extension only"
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Alts</span>
+                                    <input id="Alts" value="%Alts%" name="Alts"
+                                        class="text-list"
+                                        placeholder="Advanced Extension only"
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Log Level</span>
+                                    <div class="dropdown">
+                                        <button
+                                        class="btn dropdown-toggle btn-light"
+                                        type="button"
+                                        id="Log-Level"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false"
+                                        >
+                                        %Log-Level%
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                        <li class="dropdown-item active">Default</li>
+                                        <li class="dropdown-item">Priority</li>
+                                        <li class="dropdown-item">Print</li>
+                                        <li class="dropdown-item">Silent</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card toggles p-4">
+                            <h1 class="text-center">Toggles</h1>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Delay-On-Priority" name="Delay On Priority" %Delay-On-Priority%/>
+                                <label class="form-check-label">Delay On Priority</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Restrict-Duplicates" name="Restrict Duplicates" %Restrict-Duplicates%/>
+                                <label class="form-check-label">Restrict Duplicates</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Autolog"  name="Autolog" %Autolog%/>
+                                <label class="form-check-label">Autolog</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Autocatcher" name="Autocatcher" %Autocatcher%/>
+                                <label class="form-check-label">Autocatcher</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Priority-Only"  name="Priority Only" %Priority-Only%/>
+                                <label class="form-check-label">Priority Only</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Autosleep" name="Autosleep" %Autosleep%/>
+                                <label class="form-check-label">Autosleep</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="Exploit-Hint" name="Autosleep" %Exploit-Hint%/>
+                                <label class="form-check-label">Exploit Hint</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sliders col card bg-dark p-4">
+                    <h1 class="text-center">Sliders</h1>
+                    <div class="row">
+                        <div class="slider-group mb-3 col knob-container" id="Iv-Threshold" data-default-val="%Iv-Threshold%">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">IV Threshold (%)</span>
+                            </div>
+                        </div>
+                        <div class="slider-group mb-3 col knob-container" id="Confidence-Threshold" data-default-val="%Confidence-Threshold%">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Confidence Threshold (%)</span>
+                            </div>
+                        </div>
+                        <div class="slider-group mb-3 col knob-container" id="Catch-Rate" data-default-val="%Catch-Rate%">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Catch Rate (%)</span>
+                            </div>
+                        </div>
+                        <div class="slider-group mb-3 col knob-container" id="Typo-Rate" data-default-val="%Typo-Rate%">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Typo Rate (%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="slider-group mb-3 col" id="Max-Duplicates-Container">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Max Duplicates</span>
+                                <input
+                                    id="max-dupes-slider" value="%Max-Duplicates%" type="range"
+                                    step="1" max="10" min="0"
+                                />
+                                <input class="text-int" value="%Max-Duplicates%"
+                                    type="number" id="Max-Duplicates"
+                                    min="0" max="10" width="4ch"
+                                    step="1" readonly
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="slider-group mb-3 col" id="Delay-Container">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Delay (secs)</span>
+                                <input 
+                                    id="delay-slider" value="%Delay%" type="range"
+                                    step="1" max="10" min="0"
+                                />
+                                <input class="text-float" value="%Delay%"
+                                    type="number" id="Delay"
+                                    min="0" max="10" width="4ch"
+                                    step="1" readonly
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="slider-group mb-3 col" id="Sleep-Duration-Container">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Sleep Duration (secs)</span>
+                                <input
+                                    id="sleep-duration-slider" value="%Sleep-Duration%" type="range"
+                                    step="1" max="120" min="0"
+                                />
+                                <input class="text-float" value="%Sleep-Duration%"
+                                    type="number" id="Sleep-Duration"
+                                    min="0" max="120" width="4ch"
+                                    step="1" readonly
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="slider-group mb-3 col" id="Inter-Sleep-Delay-Container">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Inter Sleep Delay (secs)</span>
+                                <input
+                                    id="wake-duration-slider" value="%Inter-Sleep-Delay%" type="range"
+                                    step="1" max="7200" min="0"
+                                />
+                                <input class="text-float" value="%Inter-Sleep-Delay%"
+                                    type="number" id="Inter-Sleep-Delay"
+                                    min="0" max="7200" width="4ch"
+                                    step="1" readonly
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main2">
+                <div class="card bg-dark p-4">
+                    <h1 class="text-center">Blacklist/Whitelist</h1>
+                    <div class="row">
+                        <div class="bw-guild col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text dd-label">Default Channelmode</span>
+                                    <div class="dropdown">
+                                        <button
+                                        class="btn dropdown-toggle btn-light"
+                                        type="button"
+                                        id="Default-Channelmode"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false"
+                                        >
+                                        %Default-Channelmode%
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                        <li class="dropdown-item active">Blacklist</li>
+                                        <li class="dropdown-item">Whitelist</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Blacklist Channels</span>
+                                    <input id="Blacklist-Channels" value="%Blacklist-Channels%" name="Blacklist Channels"
+                                        class="text-list-int"
+                                        placeholder=""
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Whitelist Channels</span>
+                                    <input id="Whitelist-Channels" value="%Whitelist-Channels%" name="Whitelist Channels"
+                                        class="text-list-int"
+                                        placeholder=""
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bw-channel col">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text dd-label">Default Guildmode</span>
+                                    <div class="dropdown">
+                                        <button
+                                        class="btn dropdown-toggle btn-light"
+                                        type="button"
+                                        id="Default-Guildmode"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false"
+                                        >
+                                        %Default-Guildmode%
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                        <li class="dropdown-item active">Blacklist</li>
+                                        <li class="dropdown-item">Whitelist</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Blacklist Guilds</span>
+                                    <input id="Blacklist-Guilds" value="%Blacklist-Guilds%" name="Blacklist Guilds"
+                                        class="text-list-int"
+                                        placeholder=""
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Whitelist Guilds</span>
+                                    <input id="Whitelist-Guilds" value="%Whitelist-Guilds%" name="Whitelist Guilds"
+                                        class="text-list-int"
+                                        placeholder=""
+                                    />
+                                    <span class="input-group-btn">
+                                        <button  class="btn btn-dark" data-toggle="modal" data-target="#idInputModal">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-container">
+                    <h1 class="submit-title">Click me to submit.</h1>
+                    <input type="image" class="btn submit" id="submit" src="emblem.png" />
+                </div>
+                <button class="btn btn-success submit" id="submit">
+                    Update Configs
+                </button>
+            </div>
+        </div>
+    <script>
+        $(".dropdown-menu li").click(function(){
+            $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+            $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+        });
+        $(".submit-title").bind("click", ()=>$("#submit").click());
+
+        let knobs = {};
+        $(".knob-container").each((idx, elem)=>{
+            var knob = pureknob.createKnob(100, 100);
+            knob.setValue(elem.getAttribute("data-default-val"));
+            knob.setProperty("colorFG", "#cc3e3e");
+            var node = knob.node();
+            node.style.margin = "10%";
+            elem.appendChild(node);
+            knobs[elem.id.replaceAll("-", "_").toLowerCase()] = knob;
+        });
+
+        $("input[type=range]").on(
+            "change",
+            (e)=>{
+                e.target.nextElementSibling.value = e.target.value;
+            }
+        );
+
+        $(".input-group input").on(
+            "focus",
+            (e)=>{
+                console.log($(e.target).next());
+                $(e.target).next().fadeOut();
+            }
+        );
+        $(".input-group input").on(
+            "focusout",
+            (e)=>{
+                console.log($(e.target).next());
+                $(e.target).next().fadeIn();
+            }
+        );
+
+        $('#idInputModal').on(
+            'show.bs.modal', (e) => {
+            $("#modal-input").val("");
+            $("#modal-input").focus();
+            let input = $(e.relatedTarget).parent().prev();
+            $("#modal-submit").one(
+                "click",
+                (e) => {
+                    let arr = input.val().split(",").map(
+                        (elem)=>{
+                            return elem.trim()
+                        }
+                    );
+                    arr.push($("#modal-input").val())
+                    arr = [...new Set(arr)];
+                    input.val(arr.join(", "));
+                    $("#idInputModal").modal("hide");
+                }
+            );
+            
+        })
+
+        $("#submit").on(
+            "click",
+            () => {
+                if (
+                    $("input[required]").map(
+                        (idx, inp)=>{
+                            return inp.reportValidity()
+                        }
+                    ).get().every((x)=>x) === true
+                ){
+                    let data = {};
+                    $(".text-str").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.value;
+                        }
+                    );
+                    $(".text-int").each(
+                        (idx, elem)=>{
+                            try {
+                                data[elem.id.replaceAll("-", "_").toLowerCase()] = BigInt(elem.value);
+                            }
+                            catch (ex){
+                                $(elem).focus();
+                                $(elem).val("");
+                                throw new Error("Needs to be a valid ID.");
+                            }
+                        }
+                    );
+                    $(".text-float").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = parseFloat(elem.value);
+                        }
+                    );
+                    $(".text-list").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.value.split(',').flatMap(
+                                (e)=>e.trim() !== "" ? e.trim(): []
+                            );
+                        }
+                    );
+                    $(".text-list-int").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.value.split(',').flatMap(
+                                (e)=>isNaN(parseInt(e.trim())) ? []: BigInt(e.trim())
+                            );
+                        }
+                    );
+                    $(".text-list-float").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.value.split(',').map(
+                                (e)=>isNaN(parseFloat(e.trim())) ? []: parseFloat(e.trim())
+                            );
+                        }
+                    );
+                    $(":checkbox").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.checked;
+                        }
+                    );
+                    $(".dropdown-toggle").each(
+                        (idx, elem)=>{
+                            data[elem.id.replaceAll("-", "_").toLowerCase()] = elem.textContent.trim().toLowerCase()
+                        }
+                    );
+                    Object.entries(knobs).forEach(
+                        ([key, knob])=>{
+                            data[key] = knob.getValue();
+                        }
+                    );
+                    $.ajax({
+                        url: "/submit",
+                        async: true,
+                        data: JSON.stringify(
+                            data,
+                            (key, val) => {
+                               return typeof(val) === 'bigint' ? val.toString() : val
+                            },
+                            3
+                        ),
+                        headers: {"Content-Type": "application/json"},
+                        method: "POST",
+                        success: (resp, status, headers) => {
+                            window.location.href = "/success.html";
+                        }
+                    });
+                }
+            }
+        );
+    </script>
+    </body>
+</html>

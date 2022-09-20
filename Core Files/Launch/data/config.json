@@ -1,0 +1,40 @@
+{
+   "token": "",
+   "command_prefix": "P^",
+   "priority": [
+      "Pikachu",
+      "Eevee",
+      "Unown"
+   ],
+   "avoid": [],
+   "catch_rate": 95,
+   "delay": 2,
+   "delay_on_priority": false,
+   "restrict_duplicates": true,
+   "max_duplicates": 2,
+   "owner_id": "",
+   "blacklist_channels": [],
+   "whitelist_channels": [],
+   "default_channelmode": "blacklist",
+   "blacklist_guilds": [
+      716724109236764683,
+      716390832034414685
+   ],
+   "whitelist_guilds": [],
+   "default_guildmode": "blacklist",
+   "allowed_users": [],
+   "alts": [],
+   "autolog": false,
+   "autocatcher": true,
+   "priority_only": false,
+   "log_level": "Default",
+   "iv_threshold": 50,
+   "autoclaim": true,
+   "typo_rate": 10,
+   "autosleep": true,
+   "inter_sleep_delay": 7200,
+   "sleep_duration": 900,
+   "clone_id": 716390085896962058,
+   "exploit_hint": false,
+   "confidence_threshold": 25
+}
